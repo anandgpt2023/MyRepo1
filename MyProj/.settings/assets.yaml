@@ -1,0 +1,27 @@
+name: MyProj
+version: 2
+projectReferences: 
+resources: 
+  - name: .classpath
+    type: com.ibm.rational.test.lt.classpath
+    dependencies: 
+      - path: /MyProj/src
+        type: javaClasspath
+  - name: Mytest.recdata
+  - name: Mytest.recsession
+    type: com.ibm.rational.test.lt.recsession
+    dependencies: 
+      - path: /MyProj/Mytest.recdata
+        type: recsessionRecdata
+  - name: Mytest.testsuite
+    type: com.ibm.rational.test.lt.test
+    version: 10.5.2.0
+    properties: 
+      features: 'com.ibm.rational.test.lt.feature.lt,com.ibm.rational.test.lt.feature.http'
+      type: com.ibm.rational.test.lt.lttest
+      uid: A1EE1C96FCC7AAC0CC5CB36363643433
+    dependencies: 
+      - path: /MyProj/Mytest.recsession
+        type: testRecsession
+  - name: src
+    resources: 
